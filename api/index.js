@@ -20,20 +20,22 @@ const students = {
   }
 };
 
-app.get('/:id', (req, res) => {
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'API funcionando' });
+});
+
+// Specific API route
+app.get('/api/1', (req, res) => {
+  res.json({ message: 'Esta es la ruta /api/1' });
+});
+
+app.get('/students/:id', (req, res) => {
   const studentId = req.params.id;
   if (!students[studentId]) {
     return res.status(404).send({ error: "El estudiante no existe" });
   }
   res.json(students[studentId]);
-});
-
-app.get('/api/1', (req, res) => {
-  res.json({ message: 'Esta es la ruta /api/1' });
-});
-
-app.get('/', (req, res) => {
-  res.json({ message: 'API funcionando' });
 });
 
 module.exports = app;
