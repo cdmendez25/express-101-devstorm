@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const serverless = require('serverless-http'); // <- corregido
+const serverless = require('serverless-http');
 const app = express();
 
 app.use(cors());
@@ -22,11 +22,9 @@ const students = {
 
 app.get('/:id', (req, res) => {
   const studentId = req.params.id;
-
   if (!students[studentId]) {
     return res.status(404).send({ error: "El estudiante no existe" });
   }
-
   res.json(students[studentId]);
 });
 
