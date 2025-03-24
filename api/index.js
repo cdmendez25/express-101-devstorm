@@ -28,5 +28,13 @@ app.get('/:id', (req, res) => {
   res.json(students[studentId]);
 });
 
+app.get('/api/1', (req, res) => {
+  res.json({ message: 'Esta es la ruta /api/1' });
+});
+
+app.get('/', (req, res) => {
+  res.json({ message: 'API funcionando' });
+});
+
 module.exports = app;
 module.exports.handler = serverless(app);
