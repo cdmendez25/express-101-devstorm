@@ -1,6 +1,9 @@
 const express = require('express');
-const { default: serverless } = require('serverless-http');
+const cors = require('cors');
+const serverless = require('serverless-http'); // <- corregido
 const app = express();
+
+app.use(cors());
 
 const students = {
   1: {
