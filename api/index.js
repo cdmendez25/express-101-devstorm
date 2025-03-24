@@ -20,7 +20,6 @@ const students = {
   }
 };
 
-// Root route
 app.get('/', (req, res) => {
   res.json({ message: 'API funcionando' });
 });
